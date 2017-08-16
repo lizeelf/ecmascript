@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>ECMA</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />
+        <link href="assets/google-code-prettify/prettify.css" rel="stylesheet" />
+        <link href="assets/css/docs.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="assets/ico/favicon.png" />
+        <style>
+            .pluginwrap { display:none; }
+            .pluginwrapActive { display:block; }
+        </style>
+    </head>
+    <body>
+        <header class="jumbotron subhead">
+            <div class="container container-narrow">
+                <h1>ECMAScript</h1>
+                <p class="lead">(European Computer Manufacturers Association Script)</p>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="well intro-text">
+                        <h3>
+                            <code>ECMA</code> <code>ECMAScript</code> <code>ECMA5</code> <code>ECMA6</code> <code>JavaScript</code> <code>JScript</code> <code>strict mode</code>
+                            <code>Document Object Model(DOM)</code> <code>Browser Object Model(BOM)</code> <code>JSON</code> <code>arrows</code> <code>let</code> <code>const</code> <code>generators</code> <code>spread</code>
+                            <code>rest</code> <code>promise</code> <code>hoisting</code> <code>yield</code> <code>for-of</code> <code>Iteration</code> <code>Iterable</code> <code>Iterator</code> <code>Symbol.iterator</code>
+                            <code>prototype</code> <code>Template Literal</code> <code>String.raw</code> <code>Array-like</code>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:20px;margin-bottom:20px">
+                <div class="span12">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <td width="50%">
+                                    <ul class="menu">
+                                        <h4>Overview</h4>
+                                        <p><code>TypeScript</code> 내용을 확인하던 중 <code>ECMAScript</code> 가 자주 등장하고 <code>JavaScript</code>의 표준이라는 말이 나와 이번 세미나의 주제를 <code>ECMAScript</code>로 정했다. 실제 쓰고 있는 기술과 앞으로 추가되는 기술에 대해 미리 알아보고 추후 현업에서 도움이 되면 좋겠다.
+                                        </p>
+                                        <P>
+                                            위 단어는 이번 내용에 포함된 <code>키워드</code>이다. 해당 <code>키워드</code>가 의미하는 내용을 이해하면 좋겠다.
+                                        </P>
+                                        <hr>
+                                        <p>
+                                            Author:     <a href="https://github.com/lizeelf" target="_blank">lizeelf</a><br>
+                                            Github:    <a href="https://github.com/lizeelf/ecmascript"    target="_blank">https://github.com/lizeelf/ecmascript</a><br>
+                                            Created On: 11/08/2017<br>
+                                            Updated On: 15/08/2017<br>
+                                        </p>
+                                    </ul>
+                                </td>
+                                <td width="50%">
+                                    <h4>Table of Contents:</h4>
+                                    <ul class="menu">
+                                        <li><a href="javascript:;" class="clickable" data-section="#overview">Overview</a></li>
+                                        <li><a href="javascript:;" class="clickable" data-section="#ecma">1. ECMA</a></li>
+                                        <p style="padding-left: 10px;">
+                                        - 소개<br />
+                                        - 표준 목록
+                                        </p>
+                                        <hr>
+                                        <li><a href="javascript:;" class="clickable" data-section="#script">2. *Script</a></li>
+                                        <p style="padding-left: 10px;">
+                                        - JavaScript<br />
+                                        - JScript<br />
+                                        - ECMAScript<br />
+                                        - 흔히 말하는 JavaScript
+                                        </p>
+                                        <hr>
+                                        <li><a href="javascript:;" class="clickable" data-section="#ecmascript">3. ECMAScript</a></li>
+                                        <p style="padding-left: 10px;">
+                                        - Browser Implementataions<br />
+                                        - ECMAScript 3<br />
+                                        - ECMAScript 5 (ES2015)<br />
+                                        - ECMAScript 6 (ES2016)<br />
+                                        - ECMAScript 7 (ES2017)
+                                        </p>
+                                        <hr>
+                                        <li><a href="javascript:;" class="clickable" data-section="#references">4. References</a></li>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <section id="ecma">
+                        <div class="page-header">
+                            <h1>1. ECMA</h1>
+                            <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+                        </div>
+                        <p>1961년 유럽에서 컴퓨터 시스템을 표준화하기 위해 설립.<br />
+                          정보와 통신 시스템을 위한 국제적이면서도 회원국 기반의 비영리 표준화 기구로 국제적 확장을 반영하여 1994년 <code>ECMA</code>에서 <code>Ecma International</code>로 변경되었다.
+                        </p>
+                        <h3>표준 목록</h3>
+                        <table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="30%">규격 (Standard)</th>
+                                    <th width="70%">설명 (Description)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>ECMA-119</code></td>
+                                    <td>CD-ROM 볼륨, 파일 구조 (ISO 9660로 알려져 있음)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-262</code></td>
+                                    <td>ECMAScript 언어 규격</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-334</code></td>
+                                    <td>C# 언어 규격</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-335</code></td>
+                                    <td>공통 언어 기반 (CLI)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-341</code></td>
+                                    <td>전자 제품을 위한 환경 디자인 고려</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-363</code></td>
+                                    <td>유니버설 3D 파일 포맷</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-367</code></td>
+                                    <td>에펠: 분석, 설계, 프로그래밍 언어</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-372</code></td>
+                                    <td>C++ / CLI 언어 규격</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-378</code></td>
+                                    <td>HVD-ROM</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ECMA-388</code></td>
+                                    <td>Ecma 오피스 오픈 XML</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                          <a href="https://www.ecma-international.org/publications/standards/Standard.htm" target="_blank">https://www.ecma-international.org/publications/standards/Standard.htm</a><br>
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <section id="script">
+                        <div class="page-header">
+                            <h1>2. *Script</h1>
+                            <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>
+                            <code>넷스케이프(Netscape)</code>에서 웹페이지에 동적인 요소를 구현하기 위해 1995년에 개발한 언어이다. <code>모질라(Mozilla)</code> 재단의 AOL에 회사가 넘어가고 2007년 12월 제작이 중단되었다. 그후 <code>Firefox</code>에 흡수되었으며, 현재 1.8.5 버전까지 출시되었다.
+                        </p>
+                        <h3>JScript</h3>
+                        <p>
+                            <code>IE(Internet Explorer)</code>에서 사용하기 위하여 <code>MS(MicroSoft)</code>에서 개발한 언어이다. 1996년 8월에 출시된 IE 3.0부터 지원하였으며, IE 9에서는 9.0버전이 적용되었다.
+                            <code>.Net Framework</code>에서 7.0, 7.1, 8.0, 10.0의 버전이 출시되었다.
+                        </p>
+                        <a href="https://msdn.microsoft.com/en-us/library/2z6exc9e(v=vs.100).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/2z6exc9e(v=vs.100).aspx</a>
+
+                        <h3>ECMAScript</h3>
+                        <p>
+                            <code>넷스케이프(Netscape)</code>가 <code>JavaScript</code> 기술 규격을 표준화 하기 위해 <code>ECMA International</code>에 제출하여 <code>ECMA-262</code> 기술 규격으로 시작되었다.
+                            <code>ECMA-262</code> 기술 규격이 표준화된 언어의 이름을 <code>ECMAScript</code>라고 한다.
+                        </p>
+                        <p>
+                            <code>JavaScript</code>와 <code>JScript</code> 모두 <code>ECMAScript</code>와 호환을 목표로 하며, 각자 <code>ECMA 규격</code>에 포함되지 않은 독자적인 확장 기능을 제공한다.
+                          (JScript: <a href="https://msdn.microsoft.com/en-us/library/894hfyb4(v=vs.100).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/894hfyb4(v=vs.100).aspx</a>)
+                        </p>
+                        <table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="20%">년도 (Year)</th>
+                                    <th width="30%">이름 (Name)</th>
+                                    <th width="50%">설명 (Description)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1997</td>
+                                    <td>ECMAScript 1</td>
+                                    <td>First Edition.</td>
+                                </tr>
+                                <tr>
+                                    <td>1998</td>
+                                    <td>ECMAScript 2</td>
+                                    <td>Editiorial changes only.</td>
+                                </tr>
+                                <tr>
+                                    <td>1999</td>
+                                    <td>ECMAScript 3</td>
+                                    <td>Added Regular Expressions. Added try/catch.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>ECMAScript 4</td>
+                                    <td>Was never released.</td>
+                                </tr>
+                                <tr>
+                                    <td>2009</td>
+                                    <td>ECMAScript 5</td>
+                                    <td>Added "strict mode". Added JSON support</td>
+                                </tr>
+                                <tr>
+                                    <td>2011</td>
+                                    <td>ECMAScript 5.1</td>
+                                    <td>Editorial changes.</td>
+                                </tr>
+                                <tr>
+                                    <td>2015</td>
+                                    <td>ECMAScript 6</td>
+                                    <td>Added classes and modules.</td>
+                                </tr>
+                                <tr>
+                                    <td>2016</td>
+                                    <td>ECMAScript 7</td>
+                                    <td>Added exponential operator (**). Added Array.prototype.includes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="https://ko.wikipedia.org/wiki/ECMA%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" target="_blank">https://ko.wikipedia.org/wiki/ECMA%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8</a>
+
+                        <h3>*Script 버전 비교</h3>
+                        <table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="10%">년도 (Year)</th>
+                                    <th width="20%">JavaScript</th>
+                                    <th width="20%">JScript</th>
+                                    <th width="20%">ECMA</th>
+                                    <th width="30%">Browser</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1996</td>
+                                    <td>1.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Netscape 2</td>
+                                </tr>
+                                <tr>
+                                    <td>1996</td>
+                                    <td></td>
+                                    <td>1.0</td>
+                                    <td></td>
+                                    <td>Internet Explorer 3</td>
+                                </tr>
+                                <tr>
+                                    <td>1996</td>
+                                    <td>1.1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Netscape 3</td>
+                                </tr>
+                                <tr>
+                                    <td>1997</td>
+                                    <td>1.2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Netscape 4</td>
+                                </tr>
+                                <tr>
+                                    <td>1997</td>
+                                    <td></td>
+                                    <td>3.0</td>
+                                    <td>1</td>
+                                    <td>Internet Explorer 4</td>
+                                </tr>
+                                <tr>
+                                    <td>1998</td>
+                                    <td>1.3</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>Netscape 4.06</td>
+                                </tr>
+                                <tr>
+                                    <td>1999</td>
+                                    <td></td>
+                                    <td>5.0</td>
+                                    <td>2</td>
+                                    <td>Internet Explorer 5</td>
+                                </tr>
+                                <tr>
+                                    <td>1999</td>
+                                    <td></td>
+                                    <td>5.1</td>
+                                    <td>2</td>
+                                    <td>Internet Explorer 5.1</td>
+                                </tr>
+                                <tr>
+                                    <td>2000</td>
+                                    <td></td>
+                                    <td>5.5</td>
+                                    <td>3</td>
+                                    <td>Internet Explorer 5.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2000</td>
+                                    <td>1.5</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>Netscape 6</td>
+                                </tr>
+                                <tr>
+                                    <td>2000</td>
+                                    <td>1.5</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>Firefox 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2001</td>
+                                    <td></td>
+                                    <td>5.6</td>
+                                    <td>3</td>
+                                    <td>Internet Explorer 6</td>
+                                </tr>
+                                <tr>
+                                    <td>2005</td>
+                                    <td>1.6</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>Firefox 1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2006</td>
+                                    <td></td>
+                                    <td>5.7</td>
+                                    <td>3</td>
+                                    <td>Internet Explorer 7</td>
+                                </tr>
+                                <tr>
+                                    <td>2006</td>
+                                    <td>1.7</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>Firefox 2</td>
+                                </tr>
+                                <tr>
+                                    <td>2008</td>
+                                    <td>1.8</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>Firefox 3</td>
+                                </tr>
+                                <tr>
+                                    <td>2009</td>
+                                    <td></td>
+                                    <td>5.8</td>
+                                    <td>3</td>
+                                    <td>Internet Explorer 8</td>
+                                </tr>
+                                <tr>
+                                    <td>2009</td>
+                                    <td>1.8.1</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>Firefox 3.5 (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>2009</td>
+                                    <td>1.8.2</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>Firefox 3.5 (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>2011</td>
+                                    <td>1.8.5</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>Firefox 4</td>
+                                </tr>
+                                <tr>
+                                    <td>2011</td>
+                                    <td></td>
+                                    <td>9.0</td>
+                                    <td>5</td>
+                                    <td>Internet Explorer 9 (Partial Support)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="https://www.w3schools.com/js/js_versions.asp" target="_blank">https://www.w3schools.com/js/js_versions.asp</a>
+
+                        <h3>흔히 말하는 JavaScript</h3>
+                        <p>
+                            <code>Core(ECMAScript)</code> + <code>Document Object Model(DOM)</code> + <code>Browser Object Model(BOM)</code>
+                        </p>
+                        <h4>Core</h4>
+                        <p>
+                            명세에서 설명하는 부분(문법, 타입, 선언문, 키워드, 예약어, 연산자, 객체)을 구현한 언어를 뜻하며 <code>JavaScript</code>는 <code>ECMAScript</code>를 구현한 것이다.
+                        </p>
+                        <hr>
+                        <h4>Document Object Model(DOM)</h4>
+                        <p>
+                            <code>HTML</code>, <code>XML</code> 문서를 처리하는 API.<br />
+                            <code>window 객체의 document 프로퍼티</code>를 통해서 사용할 수 있는 객체 모델를 의미한다.<br />
+                            웹 문서의 내용, 구조, 스타일에 관한 정보에 접근하거나 갱신하기 위해 사용하는 인터페이스이다.<br />
+                            <code>DOMScript</code>를 이용하여 문서를 <code>tree구조</code>로 표시하여 표현이 가능하다. (Node)
+                        </p>
+                        <hr>
+                        <h4>Browser Object Model(BOM)</h4>
+                        <p>
+                            웹 브라우저 기능 요소를 직접 관리/제어 할 수 있는 특별한 객체 모음이다.<br />
+                            브라우저 제작사마다 세부사항이 다소 다르게 구현되어있다.<br />
+                           <code>JavaScript</code>에서는 전역 객체(Global Object)로 사용할 수 있다. (window 객체)
+                        </p>
+                        <img src="image/bom.jpg" />
+                        <table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="20%">Object</th>
+                                    <th width="20%">Method</th>
+                                    <th width="60%">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="8">window</td>
+                                    <td><code>open()</code></td>
+                                    <td>새 창을 열 때 사용</td>
+                                </tr>
+                                <tr>
+                                    <td><code>alert()</code></td>
+                                    <td>경고 창을 띄움</td>
+                                </tr>
+                                <tr>
+                                    <td><code>prompt()</code></td>
+                                    <td>질의응담 창을 띄움</td>
+                                </tr>
+                                <tr>
+                                    <td><code>confirm()</code></td>
+                                    <td>확인/취소 창 띄움</td>
+                                </tr>
+                                <tr>
+                                    <td><code>moveTo()</code></td>
+                                    <td>창의 위치 변경</td>
+                                </tr>
+                                <tr>
+                                    <td><code>resizeTo()</code></td>
+                                    <td>창의 크기 변경</td>
+                                </tr>
+                                <tr>
+                                    <td><code>setInterval()</code></td>
+                                    <td>일정 간격으로 지속적인 실행문을 실행시킬 때 사용</td>
+                                </tr>
+                                <tr>
+                                    <td><code>setTimeout()</code></td>
+                                    <td>일정 간격으로 한번만 실행문을 실행시킬 때 사용</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                          <table class="table table-bordered table-striped1" width="600">
+                              <thead>
+                                  <tr>
+                                      <th width="20%">Object</th>
+                                      <th width="20%">Property / Method</th>
+                                      <th width="60%">Description</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    <td rowspan="5">screen</td>
+                                    <td><code>screen.width</code></td>
+                                    <td>화면의 너비값을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>screen.height</code></td>
+                                    <td>화면의 높이값을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>screen.availWidth</code></td>
+                                    <td>작업 표시줄을 제외한 화면의 너비값을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>screen.availHeight</code></td>
+                                    <td>작업 표시줄을 제외한 화면의 높이값을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>screen.colorDepth</code></td>
+                                    <td>사용자 모니터가 표현 가능한 color bit를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="8">location</td>
+                                    <td><code>location.href</code></td>
+                                    <td>주소 영역에 주소를 설정하거나 URL을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.hash</code></td>
+                                    <td>URL에 해시값(#에 명시된 값)을 반환 (http://lizeelf.tistory.com#<b>top</b>)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.hostname</code></td>
+                                    <td>URL에 호스트 이름을 설정하거나 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.host</code></td>
+                                    <td>URL에 호스트 이름과 포트 번호를 획득</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.port</code></td>
+                                    <td>URL에 포트 번호를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.protocol</code></td>
+                                    <td>URL에 프로토콜을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.search</code></td>
+                                    <td>URL에 쿼리(요청 값)을 반환 (http://lizeelf.com?<b>id=lizeelf&pw=1234</b>)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>location.reload()</code></td>
+                                    <td>새로고침</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">history</td>
+                                    <td><code>history.back()</code></td>
+                                    <td>이전 방문한 페이지로 이동</td>
+                                </tr>
+                                <tr>
+                                    <td><code>history.forward()</code></td>
+                                    <td>다음 방문한 페이지로 이동</td>
+                                </tr>
+                                <tr>
+                                    <td><code>history.go(숫자)</code></td>
+                                    <td>숫자가 -2이면 2단계 이전 페이지로 이동</td>
+                                </tr>
+                                <tr>
+                                    <td><code>history.length</code></td>
+                                    <td>방문 기록에 저장된 목록의 개수를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">navigator</td>
+                                    <td><code>navigator.appCodeName</code></td>
+                                    <td>브라우저 코드명을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.appName</code></td>
+                                    <td>브라우저 이름을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.appVersion</code></td>
+                                    <td>브라우저 버전 정보를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.language</code></td>
+                                    <td>브라우저 사용 언어를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.product</code></td>
+                                    <td>브라우저 사용 엔진 이름을 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.platform</code></td>
+                                    <td>브라우저를 실행하는 운영체제를 반환</td>
+                                </tr>
+                                <tr>
+                                    <td><code>navigator.userAgent</code></td>
+                                    <td>브라우저와 운영체제 종합 정보를 반환</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <section id="ecmascript">
+                        <div class="page-header">
+                            <h1>3. ECMAScript</h1>
+                            <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+                        </div>
+                        <h3>Browser Implementations</h3>
+                        <table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="30%">Engine</th>
+                                    <th width="20%">ECMA</th>
+                                    <th width="50%">Browser</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>V8</td>
+                                    <td>6</td>
+                                    <td>Chrome (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>SpiderMonkey</td>
+                                    <td>6</td>
+                                    <td>Firefox (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>Chakra</td>
+                                    <td>6</td>
+                                    <td>Edge (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>Nitro</td>
+                                    <td>6</td>
+                                    <td>Safari (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>V8</td>
+                                    <td>6</td>
+                                    <td>Opera (Partial Support)</td>
+                                </tr>
+                                <tr>
+                                    <td>V8</td>
+                                    <td>5</td>
+                                    <td>Chrome 23</td>
+                                </tr>
+                                <tr>
+                                    <td>SpiderMonkey</td>
+                                    <td>5</td>
+                                    <td>Firefox 21</td>
+                                </tr>
+                                <tr>
+                                    <td>JavaScript 1.8.5</td>
+                                    <td>5</td>
+                                    <td>Firefox 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Nitro</td>
+                                    <td>5</td>
+                                    <td>Safari 6</td>
+                                </tr>
+                                <tr>
+                                    <td>V8</td>
+                                    <td>5</td>
+                                    <td>Opera 15</td>
+                                </tr>
+                                <tr>
+                                    <td>Chakra</td>
+                                    <td>5</td>
+                                    <td>Edge 12</td>
+                                </tr>
+                                <tr>
+                                    <td>Chakra</td>
+                                    <td>5</td>
+                                    <td>IE 10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol>
+                            <li>
+                                <code>ECMAScript 6</code> 은 <code>ECMAScript 2015</code>로 불린다.
+                            </li>
+                            <li>
+                                <code>ECMAScript 7</code> 은 <code>ECMAScript 2016</code>로 불린다.
+                            </li>
+                            <li>
+                                <code>ECMAScript 3</code> 의 기능은 모든 브라우저가 지원한다.
+                            </li>
+                            <li>
+                                <code>ECMAScript 5</code> 의 기능은 일만적으로 모든 브라우저가 지원한다. (IE9은 ECMAScript 5 "<code>use strict</code>"를 지원하지 않는다.)
+                            </li>
+                            <li>
+                                <code>ECMAScript 6</code> 의 기능은 일부분 지원한다.
+                            </li>
+                            <li>
+                                <code>ECMAScript 7</code> 의 기능은 모든 브라우저가 지원하지 않는다.
+                            </li>
+                        </ol>
+                        <a href="http://kangax.github.io/compat-table/es5/" target="_blank">http://kangax.github.io/compat-table/es5/</a><br />
+                        <a href="http://kangax.github.io/compat-table/es6/" target="_blank">http://kangax.github.io/compat-table/es6/</a>
+                        <hr>
+                        <h3>ECMAScript 3</h3>
+                        <p>
+                            대부분의 개발자는 3.0 기반의 개발을 하고 있으며 시중의 책도 대부분 3.0을 기반으로 하는 개발론을 가르치고 있는 실정이다. 유명한 라이브러리도 하위호환성을 근거로 3.0기반의 문법을 채용하고 있다.
+                        </p>
+                        <hr>
+                        <h3>ECMAScript 5</h3>
+                            더 철저한 오류 검사를 제공하고 오류 경향이 있는 구조를 피하는 하부집합인 <code>strict mode</code>를 추가한다. <code>JSON</code>, <code>array 함수</code> 등 스크립트 사용에 있어 유용한 기술이 추가되었다. 3번째 판의 규격에 있던 수많은 애매한 부분을 명확히 하고 있다.
+                        <hr>
+                        <h4>strick mode</h4>
+                        <p>
+                            안전한 코딩을 위한 가이드라인.<br />
+                            잠재적인 오류를 막아주는 역할과 모호한 사용으로 개발자들이 실수하기 쉬운 문제들을 인터프리터 차원에서 차단해 준다.
+                        </p>
+                        <p>
+                            <b>스크립트에서 strict 선언</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+
+function a() {
+    var hello = 10;
+    return hello;
+}
+
+hello = 5; // ERROR
+</pre>
+                        <p>
+                            <b>함수에서 strict 선언</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+function a() {
+    "use strict";
+
+    hello = 10;
+    return hello; // ERROR
+}
+
+hello = 5;
+</pre>
+                        <p>
+                            <code>strick mode</code>에서 발생하는 에러는 아래와 같다.
+                        </p>
+                        <p>
+                            <b>실수를 에러로 변환</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+test = 4; // 선언하지 않고 변수 사용
+
+"use strict";
+var testObj = Object.definedProperties({}, {
+    prop1: {
+        value: 10,
+        writable: false
+    },
+    prop2: {
+        get: function() {
+
+        }
+    }
+});
+testObj.prop1 = 20; // readonly 객체 수정 불가능
+testObj.prop1 = 30;
+
+"use strict";
+var testVar = 15;
+function tFunc() {}
+delete testVar;
+delete tFunc;
+
+Object.defineProperty(testObj, "testVar", {
+    value: 10,
+    configurable: false
+});
+delete testObj.testVar;
+// delete를 호출할 수 없다.
+
+"use strict";
+var testObj = new Object();
+Object.preventExtensions(testObj);
+testObj.name = "lizeelf"; // extensible 특성이 false로 설정된 객체에 속성을 확장할 수 없다.
+
+"use strict";
+var o = { p: 1, p: 2} // 리터럴 개체는 동일한 이름의 property를 사용할 수 없다.
+
+"use strict";
+function testFunc(param1, param1) { // 함수의 동일한 매개 변수 이름을 선언하는 것이 불가능하다.
+    return 1;
+}
+
+"use strict";
+var testoctal = 010;
+var testescape = \010; // 8진수 숫자 리터럴 및 이스케이프 문자를 사용할 수 없다.
+</pre>
+                        <p>
+                            <b>변수 사용의 명료화</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+var x = 17;
+with (obj) {
+    x;
+}
+// with를 같이 사용할 수 없다. x가 전역변수 x인지 obj.x인지 모호함.
+
+"use strict";
+eval("var x = 2");
+alert(x); // ERROR. eval 함수는 주변 scope에 새로운 변수를 추가하지 않음.
+
+var x = 17;
+var evalX = eval ("'use strict'; var x = 42; x");
+console.log(x); // 17
+console.log(evalX); // 42
+</pre>
+                        <p>
+                            <b>eval과 arguments 명료화</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+var eval;
+function x(eval) {}
+var y = function eval() {};
+//eval을 변수 또는 함수, 매개 변수의 이름으로 사용할 수 없다.
+
+"use strict";
+var obj = { set p(arguments) {} };
+try {
+
+} catch (arguments) {
+
+}
+function arguments() {
+    var f = new Function("arguments", "'use strict'; return 17;");
+}
+// arguments를 변수 또는 함수, 매개 변수의 이름으로 사용할 수 없다.
+
+
+"use strict";
+(function(num) {
+    console.log(num);
+    if (num === 0) {
+      return num;
+    } else {
+        return num + arguments.callee(num - 1); //익명함수 재귀호출
+    }
+}, 20);
+// callee를 지원하지 않는다. (caller도 지원하지 않음.)
+</pre>
+                        <p>
+                            <b>안전한 자바스크립트</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+function fun() {
+    return this;
+}
+console.log(func());              // undefined
+console.log(fun.call(2));         // 2
+console.log(fun.apply(null));     // null
+console.log(fun.call(undefined)); // undefined
+console.log(fun.bind(true)());    // true
+// this의 값이 null 또는 undefined인 경우 전역 객체로 변환하지 않는다.
+</pre>
+                        <p>
+                            <b>미래의 자바스크립트 준비</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+"use strict";
+var implements = "";
+var interface = "";
+var package = "";
+var private = "";
+var protected = "";
+var public = "";
+var static = "";
+var yield = "";
+</pre>
+                        <hr>
+                        <h4>JSON</h4>
+                        <p>
+                            <code>JSON</code>을 native로 지원 가능하다.<br />
+                            <code>JSON</code>을 다루는 메소드는 JSON String을 JavaScript 객체로 변경하는 <code>JSON.parse</code>와 JavaScript 객체를 JSON String으로 변경하는 <code>JSON.stringify</code>이다.
+                        </p>
+                        <p>
+                            <b>JSON.parse(text)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var obj = JSON.parse('{"name":"lizeelf"}');
+console.log(obj.name); // lizeelf
+</pre>
+                        <p>
+                            <b>JSON.parse(text, translate)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+function translate(key, value) {
+    if (key === "name") {
+        return value + "Resig";
+    }
+}
+var obj = JSON.parse('{"name":"lizeelf", "last":"Resig"}', translate);
+console.log(obj.anme); // lizeelf Resig
+console.log(obj.last); // Undefined
+</pre>
+                        <p>
+                            <b>JSON.stringify(obj)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var str = JSON.stringify({ name: "lizeelf"});
+console.log(str); // {"name": "lizeelf"}
+</pre>
+                        <p>
+                            <b>JSON.stringify(obj, ["white", "list"])</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var list = ["name"];
+var str = JSON.stringify({name: "lizeelf", last: "Resig"}, list);
+console.log(str); // {"name": "lizeelf"}
+</pre>
+                        <p>
+                            <b>JSON.stringify(obj, translate)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+function translate(key, value) {
+    if (key === "name") {
+        return value + " Resig";
+    }
+}
+var str = JSON.stringify({"name":"lizeelf", "last":"Resig"}, translate);
+console.log(str); // {"name":"lizeelf Resig"}
+</pre>
+                        <p>
+                            <b>JSON.stringify(obj, null, 2)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var str = JSON.stringify({ name: "lizeelf" }, null, 2);
+console.log(str);
+// {
+//    "name": "lizeelf"
+// }
+</pre>
+                        <p>
+                            <b>JSON.stringify(obj, null, "\t")</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var str = JSON.stringify({ name: "lizeelf" }, null, "\t");
+console.log(str); // { "name": "lizeelf" }
+</pre>
+                        <h4>.bind()</h4>
+                        <p>
+                            함수의 <code>context</code>를 고정시키며, <code>Prototype</code> 라이브러리의 <code>.bind()</code>와 본질적으로 동일하다.
+                        </p>
+                        <p>
+                            <b>Function.prototype.bind(thisArg, arg1, arg2...)</b>
+                        </p>
+                        <pre class="prettyprint linenums">
+var obj = {
+    method: function(name){
+        this.name = name;
+    }
+};
+setTimeout( obj.method.bind(obj, "John"), 100 );
+
+var obj = {
+    value : 123,
+    get : function() {
+        return this.value;
+    }
+}; 
+console.log(obj.get()) // 123 
+var fnObj = obj.get.bind({value:456}); 
+console.log(fnObj()); // 456
+</pre>
+                        <a href="http://webclub.tistory.com/90">http://webclub.tistory.com/90</a>
+                        <hr>
+                        <h4>Date</h4>
+                        <p>
+                            <code>Date</code> 객체를 <code>ISO</code> 형식의 <code>String</code>으로 상호 변환할 수 있다.<br />
+                            <code>Date</code> 생성자에 <code>ISO</code> 형식의 날짜가 입력되면 그 날짜로 객체를 초기화한다.<br />
+                            <code>.toISOString()</code> 메소드가 추가되어 <code>Date</code> 객체를 <code>ISO</code> 형식의 <code>string</code>으로 변환할 수 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+var date = new Date("2017-08-25T16:06:05.000Z");
+console.log( date.toISOString() ); // 2017-08-25T16:06:05.000Z
+</pre>
+                        <a href="http://blog.kazikai.net/?p=106">http://blog.kazikai.net/?p=106</a>
+                        <hr>
+                        <h4>.trim()</h4>
+                        <p>
+                            native로 구현이 가능하며, 다른 라이브러리와 완전히 동일하지만 더 빠르다.<br />
+                            <a href="http://blog.stevenlevithan.com/archives/faster-trim-javascript" target="_blank">http://blog.stevenlevithan.com/archives/faster-trim-javascript</a><br />
+                            <img src="image/trim.png" />
+                        </p>
+                        <pre class="prettyprint linenums">
+var str = "       Hello World!        ";
+alert(str.trim()); //Hello World!
+
+// IE8
+if (typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, ''); 
+    }
+}
+</pre>
+                        <hr>
+                        <h4>Array</h4>
+                        <p>
+                            <code>isArray</code>, <code>indexOf</code>, <code>lastIndexOf</code>, <code>every</code>, <code>some</code>, <code>forEach</code>, <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>reduceRight</code> 등의 <code>Array</code> 메소드들이 표준에 추가되었다.<br />
+                        <a href="http://dogfeet.github.io/articles/2011/1317086700.html" target="_blank">http://dogfeet.github.io/articles/2011/1317086700.html</a>
+                        </p>
+						<b>isArray</b>
+                        <pre class="prettyprint linenums">
+var ar = [];
+var result = Array.isArray(ar);
+// Output: true
+
+var ar = new Array();
+var result = Array.isArray(ar);
+// Output: true
+
+var ar = [1, 2, 3];
+var result = Array.isArray(ar);
+// Output: true
+</pre>
+                        <b>every</b>
+						<pre class="prettyprint linenums">
+function isBigEnough(element, index, array) {
+    return element >= 10;
+}
+
+[12, 5, 8, 130, 44].every(isBigEnough); // false
+[12, 54, 18, 130, 44].every(isBigEnough); // true
+</pre>
+                        <b>some</b>
+						<pre class="prettyprint linenums">
+function isBigThan10(element, index, array) {
+    return element >= 10;
+}
+
+[2, 5, 8, 1, 4].every(isBigEnough); // false
+[12, 5, 8, 1, 4].every(isBigEnough); // true
+</pre>
+                        <b>filter</b>
+						<pre class="prettyprint linenums">
+var arr = [
+    {"name": "apple", "count": 2},
+    {"name": "orange", "count": 5},
+    {"name": "pear", "count": 3},
+    {"name": "orange", "count": 16}
+];
+
+var newArr = arr.filter(function(item) {
+    return item.name === "orange";
+});
+console.log(newArr); // [{"name":"orange", "count": 5}, {"name":"orange", "count": 16}]
+</pre>
+                        <b>forEach</b>
+						<pre class="prettyprint linenums">
+var array= [1, 2, 3, 4, 5];
+array.forEach(function(v, i) {
+    if ( v === 3 ) {
+        console.log(i); // 2 
+    }
+});
+</pre>
+                        <b>map</b>
+						<pre class="prettyprint linenums">
+// 배열에 들어있는 숫자들의 제곱근을 구하여 새로운 배열 만들기
+var numbers = [1, 4, 9];
+var roots = number.map(Math.sqrt);
+console.log(roots); // [1, 2, 3];
+console.log(numbers); // [1, 4, 9];
+
+// 오브젝트 재구성
+var kvArray = [{key:1, value:10}, {key:2, value:20}, {key:3, value:30}];
+var reformattedArray = kvArray.map(function(obj) {
+
+});
+console.log(reformattedArray); // [{1:10}, {2:20}, {3:30}]
+console.log(kvArray); // [{key:1, value:10}, {key:2, value:20}, {key:3, value:30}]
+					
+// 숫자가 들어있는 배열을 인자가 있는 함수를 이용하여 재구성 하기
+var numbers = [1, 4, 9];
+var doubles = numbers.map(function(num) {
+    return num * 2;
+});
+console.log(doubles); // [2, 8, 18]
+console.log(numbers); // [1, 4, 9]
+
+// 문자열 반전
+var str = '12345';
+[].map.call(str, function(x) {
+    return x;
+}).reverse().join('');
+
+console.log(str); // 54321
+</pre>
+                        <b>reduce</b>
+						<pre class="prettyprint linenums">
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, currentIndex, array) {
+    return previousValue + currentValue;
+});
+// callback은 4번 호출.
+//  previousValue  | currentValue | currentIndex |       array     |  반환 값
+//        0        |       1      |       1      | [0, 1, 2, 3, 4] |    1
+//        1        |       2      |       2      | [0, 1, 2, 3, 4] |    3
+//        3        |       3      |       3      | [0, 1, 2, 3, 4] |    6
+//        6        |       4      |       4      | [0, 1, 2, 3, 4] |    10
+
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, currentIndex, array) {
+    return previousValue + currentValue;
+}, 10);
+// callback은 5번 호출.
+//  previousValue  | currentValue | currentIndex |       array     |  반환 값
+//        10       |       0      |       0      | [0, 1, 2, 3, 4] |    10
+//        10       |       1      |       1      | [0, 1, 2, 3, 4] |    11
+//        11       |       2      |       2      | [0, 1, 2, 3, 4] |    13
+//        13       |       3      |       3      | [0, 1, 2, 3, 4] |    16
+//        16       |       4      |       4      | [0, 1, 2, 3, 4] |    20
+
+// 배열의 값 모두 더하기
+var total = [0, 1, 2, 3].reduce(function(a, b) {
+    return a + b;
+});
+consoel.log(total); // 6
+
+// 배열의 배열(2차원 배열) 1차원으로 내리기
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+    return a.concat(b);
+}, []);
+console.log(flattened); // [0, 1, 2, 3, 4, 5]
+</pre>
+                        <b>reduceRight</b>
+						<pre class="prettyprint linenums">
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+    return previousValue + currentValue;
+});
+// callback은 4번 호출.
+//  previousValue  | currentValue | currentIndex |       array     |  반환 값
+//        4        |       3      |       3      | [0, 1, 2, 3, 4] |    7
+//        7        |       2      |       2      | [0, 1, 2, 3, 4] |    9
+//        9        |       1      |       1      | [0, 1, 2, 3, 4] |    10
+//        10       |       0      |       0      | [0, 1, 2, 3, 4] |    10
+
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+    return previousValue + currentValue;
+}, 10);
+// callback은 5번 호출.
+//  previousValue  | currentValue | currentIndex |       array     |  반환 값
+//        10       |       4      |       4      | [0, 1, 2, 3, 4] |    14
+//        14       |       3      |       3      | [0, 1, 2, 3, 4] |    17
+//        17       |       2      |       2      | [0, 1, 2, 3, 4] |    19
+//        19       |       1      |       1      | [0, 1, 2, 3, 4] |    20
+//        20       |       0      |       0      | [0, 1, 2, 3, 4] |    20
+
+// 배열의 값 모두 더하기
+var sum = [0, 1, 2, 3].reduceRight(function(a, b) {
+    return a + b;
+});
+consoel.log(sum); // 6
+
+// 배열의 배열(2차원 배열) 1차원으로 내리기
+var flattened = [[0, 1], [2, 3], [4, 5]].reduceRight(function(a, b) {
+    return a.concat(b);
+}, []);
+console.log(flattened); // [4, 5, 2, 3, 0, 1]
+
+//reduce vs reduceRight
+var a = ["1", "2", "3", "4", "5"]; 
+var left  = a.reduce(function(prev, cur)      { return prev + cur; }); 
+var right = a.reduceRight(function(prev, cur) { return prev + cur; }); 
+
+console.log(left);  // "12345"
+console.log(right); // "54321"
+</pre>
+                        <hr>
+                        <h3>ECMAScript 6</h3>
+                        <p>
+                            <code>Harmony</code>라고도 불린다. <code>ECMAScript 4</code>에서 논의 되었던 기능이 일부 반영되었다. 현재 <code>IE</code>의 경우 컴파일 모듈을 통해 변환하여 사용해야한다.
+                        </p>
+                        <hr>
+                        <h4>1. Promise</h4>
+                        <p>
+                            자바스크립트는 기본적으로 <code>동기(Synchronous)</code>로 실행하지만 Promise는 <code>비동기(Asynchronous)</code>로 실행된다. 코드 구현 관점에서 Promise는 하나의 오브젝트이다. Promise 오브젝트는 <code>DOM(Document Object Model)</code>에서 처음 제시되었으나 현재는 <code>JavaScript</code> 스펙에 포함되었다.
+                        </p>
+                        <b>Promise 기초</b>
+                        <pre class="prettyprint linenums">
+// Promise 선언
+var _promise = function(param) {
+    return new Promise(function (resolve, reject) {
+        // 비동기를 표현하기 위해 setTimeout 함수를 이용
+        window.setTimeout(function () {
+            if (param) {
+                resolve("해결 완료");
+            } else {
+                reject(Error("실패!"));
+        }, 3000);
+    });
+}
+
+// Promise 실행
+_promise(true);
+.then(function (text) {
+    console.log(text);
+}, function (error) {
+    console.log(error);
+});
+
+// 해결 완료
+</pre>
+                        <b>Promise 선언부</b>
+                        <table class="table table-bordered table-striped" width="600">
+	                        <thead>
+	                            <tr>
+	                                <th>Status</th>
+	                                <th>Description</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td width="150"><code>pending</code></td>
+	                                <td>아직 약소을 수행 중인 상태(fulfilled 혹은 reject가 되기 전)이다.</td>
+	                            </tr>
+	                            <tr>
+	                                <td><code>fulfilled</code></td>
+	                                <td>약속(promise)이 지켜진 상태이다.</td>
+	                            </tr>
+	                            <tr>
+	                                <td><code>rejected</code></td>
+	                                <td>약속(promise)가 어떤 이유에서 못 지켜진 상태이다.</td>
+	                            </tr>
+	                            <tr>
+	                                <td><code>settled</code></td>
+	                                <td>약속이 지켜졌든 안지켜졌든 일단 결론이 난 상태이다.</td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+	                    <p>
+	                        new Promise로 Promise가 생성되는 직후부터 <code>resolve</code>나 <code>reject</code>가 호출되기 전까지의 순간을 <code>pending</code> 상태라고 볼 수 있다.<br />
+	                        이후 비동기 작업이 마친 뒤 결과물을 약속대로 잘 줄 수 있다면 첫번째 파라미터로 주입되는 <code>resolve</code> 함수를 호출하고, 실패했다면 두번째 파라미터로 주입되는 <code>reject</code> 함수를 호출한다. 
+	                    </p>
+	                    <b>Promise 실행부</b>
+	                    <p>
+	                        _promise() 를 호출하면 Promise 객체가 리턴된다. Promise 객체에는 정상적으로 비동기작업이 완료되었을 때 호출하는 <code>then</code> 이라는 API가 존재한다.<br />
+	                        <code>then</code> API는 첫번째 파라미터에 성공시 호출할 함수를, 두번째 파라미터에 실패시 호출할 함수를 선언하면 Promise 상태에 따라 수행한다.
+	                    </p>
+	                    <b>Promise.catch API</b>
+	                    <p>
+	                        비동기 작업이 중간에 에러가 나면 처리할 때 사용하는 API이다.
+	                    </p>
+	                    <pre class="prettyprint linenums">
+_promise(true)
+    .then(JSON.parse)
+    .catch(function () {
+        window.alert('ERROR');
+    })
+    .then(function (text) {
+        console.log(text);
+    })
+</pre>
+                         <p>
+                             HTML5Rocks에서 보이고 있는 예제
+                         </p>
+                         <pre class="prettyprint linenums">
+asyncThing1()
+    .then(function() { return asyncThing2(); })
+    .then(function() { return asyncThing3(); })
+    .catch(function(err) { return asyncRecovery1(); })
+    
+    .then(function() { return asyncThing4(); }, function(err) { return asyncRecovery2(); })
+    .catch(function(err) { console.log("Don't worry about it"); })
+    
+    .then(function() { console.log("All done!"); });
+</pre>
+                        <img src="image/promise.png" />
+                        <b>Promise.all API</b>
+                        <p>
+                            여러개의 비동기 작업들이 존재하고 이들이 모두 완료되었을 때 작업을 진행하고 싶다면, <code>Promise.all</code> API를 활용한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+var promise1 = new Promise(function(resolve, reject) {
+
+    // 비동기를 표현하기 위해 setTimeout 함수를 이용
+    window.setTimeout(function() {
+        console.log("첫번째 Promise 완료");
+        resolve("1111");
+    }, Math.random() * 20000 + 1000);
+});
+
+var promise2 = new Promise(function(resolve, reject) {
+    window.setTimeout(function() {
+        console.log("두번째 Promise 완료");
+        resolve("2222");
+    }, Math.random() * 10000 + 1000);
+});
+
+Promise.all([promise1, promise2]).then(function(values) {
+    console.log("모두 완료됨.", values);
+});
+</pre>
+                        <hr>
+                        <h4>2. Iteration</h4>
+                        <p>
+                            반복 처리를 나타내며 이를 위한 프로토콜(Protocol)을 갖고 있다. <code>이터러블(Iterable)</code> 프로토콜과 <code>이터레이터(Iterator)</code> 프로토콜로 구성된다.<br />
+                            자바스크립트는 이터러블 오브젝트에 <code>Symbol.iterator</code>가 존재해야 한다.
+                        </p>
+						<a href="https://github.com/ES678/Exploring-ES6/tree/master/21%20%EC%9D%B4%ED%84%B0%EB%9F%AC%EB%B8%94%EA%B3%BC%20%EC%9D%B4%ED%84%B0%EB%A0%88%EC%9D%B4%ED%84%B0">https://github.com/ES678/Exploring-ES6/tree/master/21%20%EC%9D%B4%ED%84%B0%EB%9F%AC%EB%B8%94%EA%B3%BC%20%EC%9D%B4%ED%84%B0%EB%A0%88%EC%9D%B4%ED%84%B0</a><br />
+                        <b>Iterable</b>
+                        <pre class="prettyprint linenums">
+let arrayObj = [];
+let result = arrayObj[Symbol.iterator];
+console.log(result); // function values() { [native code] }
+
+let objectObj = {};
+let result = objectObj[Symbol.iterator];
+console.log(result); // undefined
+</pre>
+                        <b>Iterator</b>
+                        <pre class="prettyprint linenums">
+let arrayObj = [1, 2];
+let iteratorObj = arrayObj[Symbol.iterator]();
+console.log("1:", typeof iteratorObj); // object
+
+console.log("2:", iteratorObj.next()); // Object {value: 1, done: false}
+console.log("3:", iteratorObj.next()); // Object {value: 2, done: false}
+console.log("4:", iteratorObj.next()); // Object {value: undefined, done: true}
+</pre>
+                        <hr>
+                        <h4>3. Arrows</h4>
+                        <p>
+                            Arrows는 => 함수를 짧게 표현하는 방식을 말한다. 이는 <code>C#</code>, <code>Java8</code>이나 <code>CoffeeScript</code> 과 문법적으로 유사하다. 일반적인 함수와는 다르게 this를 호출해도 함수 자신을 뜻하는 것이 아니라 선언된 윗 단계 Scope의 this를 공유한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+//ES6
+var odds = evens.map(v => v + 1);
+var nums = evens.map((v, i) => v + i);
+var pairs = evens.map(v => ({even: v, odd: v + 1}));
+
+//ES5
+var odds = evens.map(function (v) {
+  return v + 1;
+});
+var nums = evens.map(function (v, i) {
+  return v + i;
+});
+var pairs = evens.map(function (v) {
+  return { even: v, odd: v + 1 };
+});
+
+//ES6
+nums.forEach(v => {
+  if (v % 5 === 0)
+    fives.push(v);
+});
+
+//ES5
+nums.forEach(function (v) {
+  if (v % 5 === 0) fives.push(v);
+});
+
+//ES6
+var bob = {
+  _name: "Bob",
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =>
+      console.log(this._name + " knows " + f));
+  }
+}
+
+//ES5
+var bob = {
+  _name: "Bob",
+  _friends: [],
+  printFriends: function printFriends() {
+    var _this = this;
+
+    this._friends.forEach(function (f) {
+      return console.log(_this._name + " knows " + f);
+    });
+  }
+};
+</pre>
+                        <hr>
+                        <h4>4. Classes</h4>
+                        <p>
+                            function 키워드를 사용하여 함수를 정의하듯이 class 키워드를 사용하여 클래스를 정의한다. Class 오브젝트는 Function 오브젝트, String 오브젝트와 같이 하나의 <code>오브젝트 타입</code>이다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Member {
+    getName() {
+        return "이름";
+    }
+};
+let obj = new Member();
+console.log(ob.getName()); // 이름
+</pre>
+                        <b>구문</b>
+                        <div class="well">
+let name = class { }<br />
+let name = class inner_name { }<br />
+let name = class exteds super_name { }<br />
+let name = class inner_name extends super_name { }
+</div>
+                        <b>Constructor</b>
+                        <p>
+                            클래스 인스턴스를 생성하고 생성한 인스턴스를 초기화하는 역할을 한다. <code>Java</code>의 생성자와 동일하다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Member {
+    constructor(name) {
+        this.name = name;
+    }
+    
+    getName() {
+        return this.name;
+    }
+}
+let memberObj = new Member("스포츠");
+console.log(memeberObj.getName()); // 스포츠
+</pre>
+                        <b>extends 키워드</b>
+                        <p>
+                            상속을 구현할 때 사용된다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Sports {
+    constructor(member) {
+        this.member = member;
+    }
+    getMember() {
+        return this.member;
+    }
+};
+
+class Soccer extends Sports {
+    setGround(ground) {
+        this.ground = ground;
+    }
+};
+let obj = new Soccer(11);
+console.log(obj.getmember()); // 11
+</pre>
+                        <b>super 키워드</b>
+                        <p>
+                            서브 클래스의 <code>constructor</code>에 super()를 작성하면 수퍼 클래스의 <code>constructor</code>가 호출된다. 수퍼 클래스의 메서드를 호출할려면 super.name() 과 같이 <code>super</code> 키워드에 이어서 호출하려는 메서드 이름을 작성한다.
+                        </p>
+                        <b>Overriding</b>
+                        <p>
+                        서브 클래스와 수퍼 클래스에 같은 이름의 메서드가 있을 때 서브 클래스의 메서드가 호출되는 것을 메서드 <code>오버라이딩(Overriding)</code>이라고 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Sports {
+    setGround(ground) {
+        this.ground = ground;
+    }
+};
+
+class Soccer extends Sports {
+    setGround(ground) {
+        super.setGround();
+        this.ground = ground;
+    }
+};
+
+let obj = new Soccer(11);
+obj.setGround("상암구장");
+console.log(obj.ground);
+</pre>
+                        <b>static 키워드</b>
+                        <p>
+                            <code>static</code> 메서드를 정적 메서드라고 표기한다. 정적 메서드는 클래스의 <code>prototype</code>에 연결되지 않고 클래스에서 직접 연결된다.<br />
+                            prototype에 연결된 메서드는 생성한 인스턴스에서 호출할 수 있지만, 정적 메서드는 <code>prototype</code>에 연결되지 않으므로 인스턴스에서 호출할 수 없다. 클래스 이름을 지정하여 정적 메서드를 호출해야 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Sports {
+    static getGround() {
+        return "상암구장";
+    }
+};
+console.log(Sports.getGround()); // 상암구장
+</pre>
+                        <b>getter, setter</b>
+                        <p>
+                            메서드 이름 앞에 "get", "set"을 작성하여 <code>getter</code>, <code>setter</code>를 사용할 수 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+class Member() {
+    set setName(name) {
+        this.name = name;
+    }
+    get getName() {
+        return this.name;
+    }
+};
+
+let memberObj = new Member();
+memberObj.setName = "이름";
+console.log(memberObj.getName); // 이름
+</pre>
+                        <b>Class 호이스팅</b>
+                        <p>
+                            Class는 <code>호이스팅(hoisting)</code>이 되지 않는다.
+                        </p>
+                        <pre class="prettyprint linenums">
+try {
+    let result = Member;
+} catch (e) {
+    console.log("호이스팅 불가");
+};
+
+class Member {
+    static getMember() {
+        return "member";
+    }
+};
+// Error
+</pre>
+                        <hr>
+                        <h4>5. Enhanced Object Literals</h4>
+                        <p>
+                            객체를 좀 더 간결하게 작성할 수 있는 구문이 추가되었다.
+                        </p>
+                        <pre class="prettyprint linenums">
+var a = 'foo';
+var b = 'bar';
+var obj = { a, b };
+console.log(obj.a); // 'foo'
+console.log(obj.b); // 'bar'
+
+var obj = {
+    get firstChar() {
+        return this.name[0];
+    }
+};
+console.log(obj.name); // 'foo'
+console.log(obj.firstChar); // 'f'
+
+var prop = 'foo';
+var obj = {
+    [prop]: prop
+};
+console.log(obj.foo); // 'foo'
+
+obj[prop + 'bar'] = 'bar';
+console.log(obj.foobar); // 'bar'
+</pre>
+                        <hr>
+                        <h4>6. Template Literal</h4>
+                        <p>
+                            문자열 처리를 위한 템플릿을 제공한다. 문자열과 표현식의 결과를 묶어 문자열로 표현하는 것이 <code>템플릿 리터럴(Template Literal)</code>이다.
+                        </p>
+                        <pre class="prettyprint linenums">
+console.log("1:", `123ABC가나다`); // 1: 123ABC가나다
+console.log("2:", `라인 1\n라인 2`); // 2: 라인 1
+                                    // 라인2
+console.log("3:", `첫번째 줄
+두 번째 줄`); // 3: 첫 번째 줄
+             // 두 번째 줄
+
+let one = 1, two = 2;
+console.log("4:", `1 + 2는 ${one + two}이다`); // 4: 1 + 2는 3이다
+</pre>
+                        <b>String.raw</b>
+                        <p>
+                            템플릿의 표현식은 변환하지만 특수 문자와 유니코드는 문자열로 인식한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let one = 1, two = 2;
+
+console.log("4:", `Unicode \u0031\u0032`); // Unicode 12
+console.log("5:", String.raw`Unicode \u0031\u0032`); // Unicode \u0031\u0032
+</pre>
+                        <hr>
+                        <h4>7. Destructuring</h4>
+                        <p>
+                            let one, two; [one, two] = [1, 2]; 와 같이 할당하는 방식을 <code>디스트럭처링(Destructuring)</code>이라고 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let one, two, three, four, five;
+const values = [1, 2, 3];
+
+[one, two, three] = values;
+console.log("A:", one, two, three); // A: 1 2 3
+
+[one, two] = values;
+console.log("B:", one, two); // B: 1 2
+
+[one, two, three, four] = values;
+console.log("C:", one, two, three, four); // C: 1 2 3 undefined
+
+[one, two, [three, four]] = [1, 2 [73, 74]];
+console.log("D:", one, two, three, four); // D: 1 2 73 74
+
+let one, two, three, four, other;
+[one, , , four]= [1, 2, 3,4];
+console.log(one, four); // 1, 4
+
+[one, ...others] = [1, 2, 3, 4];
+console.log(other); // [2, 3, 4];
+</pre>
+                        <hr>
+                        <h4>8. Spread, Rest</h4>
+                        <b>Spread 연산자</b>
+                        <p>
+                            <code>Iterable Object</code>의 <code>Element</code>를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 함수의 파라미터 값으로 사용할 수 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let one = [11, 12];
+let two = [21, 22];
+let spreadObj = [51, ...one, 52, ...two];
+console.log(spreadObj); // [51, 11, 12, 52, 21, 22]
+console.log(spreadObj.length); // 6
+
+let spreadObj2 = [..."brainz"];
+console.log(spreadObj2); // ["b", "r", "a", "i", "n", "z"]
+
+const values = [10, 20, 30];
+get(...values);
+function get(one, two, three) {
+    console.log(one + two + three); // 60
+}
+</pre>
+                        <b>rest 파라미터</b>
+                        <p>
+                            호출받는 함수의 파라미터에 function(...rest)와 같이 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>rest파라미터</code>라고 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let get = (one) => {
+    console.log(one);
+}
+get(...[1, 2, 3]); // 1
+
+let get= (...rest) => {
+   console.log(rest); // [1, 2, 3]
+   console.log(Array.isArray(rest)); // true
+}
+get(...[1, 2, 3]);
+
+let get = (one, ...rest) => {
+    console.log(one); // 1
+    console.log(rest); // [2, 3]
+}
+get(...[1, 2, 3]);
+</pre>
+                        <b>Array-like</b>
+                        <p>
+                            Array는 아니지만 Array처럼 사용할 수 있는 Object를 <code>Array-like</code>라고 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let values = {0: "zero", 1: "one", 2: "two", length: 3};
+for (var key in values) {
+    console.log(key, ':', values[key]);
+};
+// 0 : zero
+// 1 : one
+// 2 : two
+// length : 3
+
+for (var k = 0; k < values.length; k++) {
+    console.log(values[k]);
+}
+// zero
+// one
+// two
+
+let values = {10: "ten", zoo: "동물원", 2: "two", length: 3};
+for (var k=0; k < values.length; k++) {
+    console.log(values[k])
+}
+// undefined
+// undefined
+// two
+</pre>
+                        <hr>
+                        <h4>9. let + const</h4>
+                        <p>
+                            <code>var</code>를 대체할 수 있으며, <code>let</code>으로 선언한 함수는 현재 <code>block scope</code> 안에서만 작동한다.<br />
+                            <code>const</code>는 상수형 변수로 변수의 식별자가 재할당 될수 없지만 담긴 값은 변경할 수 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+//let
+let a = 1;
+function test() {
+  console.log(a);
+
+  let b = 2;
+  if (true) {
+    let c = 3;
+    console.log(b);
+  }
+  console.log(c);
+}
+
+test();
+//1
+//2
+//undefined
+
+//const
+var pi = 3.14;
+var r = 4;
+console.log(r * r * pi); // 50.24
+
+pi = 2.14;
+console.log(r * r * pi); // 34.24
+
+const pi2 = 3.14;
+console.log(r * r * pi); // 50.24
+
+pi2 = 2.14;
+console.log(r * r * pi); // Error
+
+var a = {
+  name: 'A'
+};
+console.log(a.name); // A
+
+const b = {
+  name: 'B'
+};
+console.log(b.name); // B
+
+b.name = 'C'
+console.log(b.name); // C
+
+const b = {
+  name: 'D'
+}; // Error
+</pre>
+                        <b>호이스팅(hoisting)</b>
+                        <p>
+                            자바스크립트는 소스 코드를 위에서 아래로 순차적으로 실행한다. 따라서 호출될 함수를 작성한 후, 아래에서 함수를 호출해야 함수가 호출된다. 하지만 함수 선언문은 함수를 호출하는 코드를 위에 작성하고 호출하는 함수를 아래에 작성해도 호출된다. 이를 <code>호이스팅(hoisting)</code>이라고 한다.
+                        </p>
+                        <hr>
+                        <h4>10. Generators</h4>
+                        <p>
+                            <code>function*</code>는 키워드로 이를 사용한 함수를 <code>제너레이터 함수(Generator Function)</code>라고 한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+function* sports(one, two) {
+    console.log("함수 블록");
+    yield one + two;
+};
+console.log(typeof sports); // function
+
+let genObj = sports(1, 2);
+console.log(typeof genObj); // object
+</pre>
+                        <b>yield : 제너레이터 함수 실행, 멈춤</b>
+                        <p>
+                            <code>yield</code> 키워드는 제너레이터 함수를 멈추게 하거나 다시 실행하는데 사용한다.<br />
+                            <code>next()</code>로 제너레이터 함수를 호출하면 <code>yield</code> 작성에 관계없이 "{value:값, done: true/false}" 형태로 반환한다.
+                        </p>
+                        <a href="http://es6-features.org/#Constants" target="_blank">http://es6-features.org/#Constants</a>
+                        <pre class="prettyprint linenums">
+function* sports(one) {
+    let two = yield one;
+    let param = yield two + one;
+};
+let generatorObj = sports(10);
+
+console.log(generatorObj.next()); // Object {value: 10, done: false}
+console.log(generatorObj.next()); // Object {value: NaN, done: false}
+console.log(generatorObj.next(20)); // Object {value: 30, done: false}
+
+function* sports(one) {
+    yield one;
+    let check = 10;
+}
+let genObj = sports(10); // 제너레이터 함수의 one 파라미터에 10이 설정되며 제너레이터 오브젝트를 생성하여 반환
+
+console.log(genObj.next()); // 함수 블록의 첫줄부터 첫 번째 yield의 표현식까지 수행 (yield one;)
+console.log(genObj.next()); // yield 왼쪽에 할당한 변수가 없고 check에 10을 할당한 후 다음줄로 이동. yield가 없으며 함수에 처리할 코드가 없다.
+// Object {value: 10, done: false}
+// Object {value: undefined, done: true}
+</pre>
+                        <b>next(): yield 단위로 실행</b>
+                        <p>
+                            <code>next()</code>를 호출하면 <code>yield</code>를 기준으로 이전 <code>yield</code>의 다음줄터 <code>yield</code>까지 수행한다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let gen = function*(value) {
+    value = value + 10;
+    yield ++value;
+    value = value + 7;
+    yield ++value;
+};
+let genObj = gen(1);
+
+console.log(genObj.next()); // Object {value: 12, done: false}   // line 2, 3
+console.log(genObj.next()); // Object {value: 20, done: false}   // line 4, 5
+console.log(genObj.next()); // Object {value: undefined, done: true} // no yield
+</pre>
+                        <b>return(): 이터레이터 종료</b>
+                        <p>
+                            제너레이터 함수의 <code>이터레이터</code>를 종료시킨다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let gen = function*(start) {
+    let count = start;
+    while (true) {
+        yield ++count;
+    }
+}
+let genObj = gen(10);
+
+console.log(genObj.next()); // {value: 11, done: false}   // line 2~5
+console.log(genObj.return(77)); // {value: 77, done: true} // value에 입력값을 설정하고 종료시킨다.
+console.log(genObj.next(55)); // {value: undefined, done: true} // 종료된 제너레이터 함수이므로 undefined
+</pre>
+                        <hr>
+                        <h4>11. Operation</h4>
+                        <b>프로퍼티 이름 조합</b>
+                        <p>
+                            문자열을 연결(조합)하여 오브젝트의 <code>프로퍼티 키(Property Key)</code>로 사용할 수 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let item = {
+    ["one" + "two"]: 12
+};
+
+console.log(item.onetwo); // 12
+
+let item = "tennis";
+let sports= }
+    [item]: 1,
+    [item + "Game"]: "윔블던",
+    [item + "Method"](){
+       return this[item];
+    }
+};
+console.log(sports.tennis); // 1
+console.log(sports.tennisGame); // 윔블던
+console.log(sports.tennisMethod()); // 1
+</pre>
+                        <b>Default 파라미터</b>
+                        <p>
+                            호출받는 함수의 파라미터에서 디폴트 값을 작성할 수 있다. 호출하는 함수에서 파라미터 값을 넘겨주지 않거나 undefined를 넘겨주면 디폴트 값이 적용된다.
+                        </p>
+                        <pre class="prettyprint linenums">
+let plus = (one, two = 2) => one + two;
+console.log(plus(1)); // 3
+console.log(plus(1, undefined)); // 3
+console.log(plus(1, 70)); // 71
+</pre>
+                        <b>for-of</b>
+                        <p>
+                            <code>Iterable Object</code>를 반복하여 처리한다. 반복하는 것은 <code>for-in</code> 문과 차이가 없지만 대상과 방법에서 차이가 있다.
+                        </p>
+                        <pre class="prettyprint linenums">
+for (var value of [10, 20, 30]) {
+    console.log(value);
+}
+// 10
+// 20
+// 30
+
+for (var value of "ABC") {
+    console.log(value);
+}
+// "A"
+// "B"
+// "C"
+</pre>
+                        <b>for-of와 for-in의 차이</b>
+                        <p>
+                            <code>for-in</code> 문의 대상은 <code>Object</code>이며 열거 가능한 프로퍼티가 대상이다. 즉, 프로퍼티의 <code>enumerable</code> 속성 값이 false이면 반복에서 제외된다. <code>for-of</code> 문의 대상은 <code>Iterable Object</code>이다.
+                        </p>
+						<a href="http://qnimate.com/foreach-vs-for-of-vs-for-in-in-javascript/">http://qnimate.com/foreach-vs-for-of-vs-for-in-in-javascript/</a>
+                        <pre class="prettyprint linenums">
+// 아래의 방법으로 Object 를 for-of으로 처리할 수 있다.
+let sports = {
+    soccer: "축구",
+    baseball: "야구"
+};
+let keyList = Object.keys(sports);
+for (var key of keyList) {
+    console.log(key, sports[key]);
+};
+// soccer 축구
+// bassball 야구
+</pre>
+                        <hr>
+                        <h3>ECMAScript 7</h3>
+                        <p>
+                            ES7은 현재 모든 브라우저가 기능을 제공하지 않는다.
+                        </p>
+                        <h4>1. Exponentiation</h4>
+                        <p>
+                            <code>거듭 제곱(Exponentiation)</code> 연산자는 곱하기 문자(*)를 연속하여 2개(**) 작성한 형태이다.
+                        </p>
+                        <pre class="prettyprint linenums">
+console.log(3**2); // 9
+console.log(3**3); // 27
+console.log(Math.pow(3, 3)); // 27
+</pre>
+                    </section>
+                </div>
+            </div>
+	        <div class="row">
+	            <div class="span12">
+	                <section id="references">
+	                    <div class="page-header">
+	                        <h1>4. References</h1>
+	                        <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+	                    </div>
+	                    <p>
+	                        아래의 사이트 정보를 참고하였다.
+	                    </p>
+	                    <table class="table table-bordered table-striped" width="600">
+	                        <thead>
+	                            <tr>
+	                                <th>Name</th>
+	                                <th>Description</th>
+	                                <th>URL</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td width="150" rowspan="3">ECMA</td>
+	                                <td width="200">ECMA Homepage</td>
+	                                <td><a href="https://www.ecma-international.org" target="_blank">https://www.ecma-international.org</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td width="200" rowspan="2">ECMA 인터내셔널</td>
+	                                <td><a href="https://ko.wikipedia.org/wiki/Ecma_%EC%9D%B8%ED%84%B0%EB%82%B4%EC%85%94%EB%84%90" target="_blank">https://ko.wikipedia.org/wiki/Ecma_%EC%9D%B8%ED%84%B0%EB%82%B4%EC%85%94%EB%84%90</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://www.ktword.co.kr/abbr_view.php?m_temp1=3594" target="_blank">http://www.ktword.co.kr/abbr_view.php?m_temp1=3594</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="3">ECMAScript</td>
+	                                <td>ECMAScript 설명</td>
+	                                <td><a href="https://ko.wikipedia.org/wiki/ECMA%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" target="_blank">https://ko.wikipedia.org/wiki/ECMA%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>브라우저 호환성</td>
+	                                <td><a href="http://kangax.github.io/compat-table/es5/" target="_blank">http://kangax.github.io/compat-table/es5/</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>자바스크립트 표준은 어떻게 만들어지는가?</td>
+	                                <td><a href="https://gamecodingschool.org/2015/06/28/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%91%9C%EC%A4%80%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%80%EB%8A%94%EA%B0%80/" target="_blank">https://gamecodingschool.org/2015/06/28/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%91%9C%EC%A4%80%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%80%EB%8A%94%EA%B0%80/</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="10">ECMAScript 5</td>
+	                                <td>array</td>
+	                                <td><a href="http://dogfeet.github.io/articles/2011/1317086700.html" target="_blank">http://dogfeet.github.io/articles/2011/1317086700.html</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>trim</td>
+	                                <td><a href="https://www.w3schools.com/jsref/jsref_trim_string.asp" target="_blank">https://www.w3schools.com/jsref/jsref_trim_string.asp</a></td>
+	                            </tr>
+								<tr>
+	                                <td>bind</td>
+	                                <td><a href="http://webclub.tistory.com/90" target="_blank">http://webclub.tistory.com/90</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>기능 설명 (Strict Mode, JSON and More)</td>
+	                                <td><a href="http://dogfeet.github.io/articles/2011/1317873491.html" target="_blank">http://dogfeet.github.io/articles/2011/1317873491.html</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>객체 정보</td>
+	                                <td><a href="https://opentutorials.org/course/787/5111" target="_blank">https://opentutorials.org/course/787/5111</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="4">strict mode</td>
+	                                <td><a href="http://blog.aliencube.org/ko/2014/01/02/reasons-behind-using-strict-mode-while-coding-javascript/" target="_blank">http://blog.aliencube.org/ko/2014/01/02/reasons-behind-using-strict-mode-while-coding-javascript/</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://hmmim.tistory.com/5" target="_blank">http://hmmim.tistory.com/5</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="https://blog.outsider.ne.kr/823" target="_blank">https://blog.outsider.ne.kr/823</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://beomy.tistory.com/13" target="_blank">http://beomy.tistory.com/13</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>언더스코어</td>
+	                                <td><a href="http://harrythegreat.tistory.com/entry/%EC%96%B8%EB%8D%94%EC%8A%A4%EC%BD%94%EC%96%B4-%EC%A0%95%EB%A6%AC" target="_blank">http://harrythegreat.tistory.com/entry/%EC%96%B8%EB%8D%94%EC%8A%A4%EC%BD%94%EC%96%B4-%EC%A0%95%EB%A6%AC</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="5">ECMAScript 6</td>
+	                                <td rowspan="2">기능 및 설명</td>
+	                                <td><a href="http://es6-features.org" target="_blank">http://es6-features.org</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://dev-momo.tistory.com/entry/ES2015%EB%A5%BC-%EA%B3%B5%EB%B6%80%ED%95%B4%EB%B3%B4%EC%9E%90" target="_blank">http://dev-momo.tistory.com/entry/ES2015%EB%A5%BC-%EA%B3%B5%EB%B6%80%ED%95%B4%EB%B3%B4%EC%9E%90</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>발표자료</td>
+	                                <td><a href="https://cimfalab.github.io/deepscan/2016/07/ecmascript-6" target="_blank">https://cimfalab.github.io/deepscan/2016/07/ecmascript-6</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>Promise</td>
+	                                <td><a href="http://programmingsummaries.tistory.com/325" target="_blank">http://programmingsummaries.tistory.com/325</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>도서</td>
+	                                <td>ECMAScript 6 정복 (Ruby Paper)</td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="2">Browser Object Model</td>
+	                                <td rowspan="2">설명</td>
+	                                <td><a href="http://gangzzang.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8JavaScript-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EA%B0%9D%EC%B2%B4-%EB%AA%A8%EB%8D%B8Browser-Object-Model" target="_blank">http://gangzzang.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8JavaScript-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EA%B0%9D%EC%B2%B4-%EB%AA%A8%EB%8D%B8Browser-Object-Model</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://www.ktword.co.kr/abbr_view.php?m_temp1=2519" target="_blank">http://www.ktword.co.kr/abbr_view.php?m_temp1=2519</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td rowspan="3">Browser Object Model</td>
+	                                <td rowspan="3">개념 및 설명</td>
+	                                <td><a href="http://codingnuri.com/javascript-tutorial/html-dom-document-object-model-overview.html" target="_blank">http://codingnuri.com/javascript-tutorial/html-dom-document-object-model-overview.html</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://bonedev.tistory.com/62" target="_blank">http://bonedev.tistory.com/62</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="http://www.nextree.co.kr/p9747/" target="_blank">http://www.nextree.co.kr/p9747/</a></td>
+	                            </tr>
+	                            <tr>
+	                                <td>2017년 이후 JavaScript 동향</td>
+	                                <td>ECMAScript</td>
+	                                <td><a href="http://d2.naver.com/helloworld/2809766" target="_blank">http://d2.naver.com/helloworld/2809766</a></td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+	                </section>
+	            </div>
+	        </div>
+        </div>
+        <!-- END -->
+        <footer class="footer">
+            <div class="container container-narrow">
+                <p>lizeelf - <a href="https://github.com/lizeelf/ecma" target="_black">https://github.com/lizeelf/ecma</a></p>
+            </div>
+        </footer>
+        <!-- Le javascript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery-1.8.3.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/google-code-prettify/prettify.js"></script>
+        <script src="assets/js/application.js"></script>
+    </body>
+</html>
