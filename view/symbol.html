@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Symbol</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet" />
+        <link href="../assets/google-code-prettify/prettify.css" rel="stylesheet" />
+        <link href="../assets/css/docs.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="../assets/ico/favicon.png" />
+        <style>
+            .pluginwrap { display:none; }
+            .pluginwrapActive { display:block; }
+        </style>
+    </head>
+    <body>
+        <header class="jumbotron subhead">
+            <div class="container container-narrow">
+                <h1>&nbsp;</h1>
+                <p class="lead"></p>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <section id="symbol">
+                        <div class="page-header">
+                            <h1>1. Symbol</h1>
+                            <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+                        </div>
+                        <h3>Primitive</h3>
+                        <p>
+                            오브젝트가 아닌 값으로 <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code> 이 있다.
+                        </p>
+						<h3>Symbol 생성</h3>
+						<p>
+						    new 연산자를 사용하여 생성할 수 없다.
+						</p>
+                        <pre class="prettyprint linenums">
+let sym = Symbol();
+
+const sym = Symbol();
+console.log("1:", sym); // 1: Symbol()
+console.log("2:", typeof sym); // symbol
+console.log("3:", Symbol("주석")); // Symbol(주석)
+console.log("4:", sym == Symbol()); // false
+</pre>
+                        <h3>Symbol 값 변경</h3>
+						<p>
+						    Symbol()로 생성한 symbol 값은 변경할 수 없다. 문자열을 연결할 수 있으나 <code>String()</code> 또는 <code>toString()</code>을 사용해야 한다.
+						</p>
+                        <pre class="prettyprint linenums">
+let sym = Symbol();
+
+try {
+    +sym;
+} catch (e) {
+    console.log("+sym 사용 불가");
+};
+
+try {
+    sym | 0;
+} catch (e) {
+    console.log("sym | 0 사용 불가");
+};
+
+// +sym 사용 불가
+// sym | 0 사용 불가
+
+let sym = Symbol();
+try {
+    sym + "문자열";
+} catch (e) {
+    console.log("문자열 연결 불가")
+};
+
+console.log(String(sym) + "연결" );
+console.log(sym.toString() + "연결");
+
+// 문자열 연결 불가
+// Symbol() 연결
+// Symbol() 연결
+</pre>
+                        <h3>Symbol 오브젝트 생성</h3>
+						<p>
+						    Object(123)과 같이 <code>Object()</code> 파라미터에 123을 지정하면 Number 오브젝트를 반환한다. 마찬가지로 Object()에 Symbol 값을 지정하면 <code>Symbol 오브젝트</code>를 반환한다.
+						</p>
+                        <pre class="prettyprint linenums">
+let sym = Symbol("123");
+const obj = Object(sym);
+console.log(obj); // Symbol {[[PrimitiveValue]]: Symbol(123)}
+
+console.log(obj == sym); // true
+console.log(obj === sym); // false
+</pre>
+                        <h3>Well-Known Symbol</h3>
+						<p>
+						    <code>@@</code>는 Symbol 대신 사용한 것이다. <code>@@iterator</code>는 Symbol.iterator와 같다. Symbol은 11개의 프로퍼티가 있다.
+						</p>
+						<table class="table table-bordered table-striped1" width="600">
+                            <thead>
+                                <tr>
+                                    <th width="30%">Spec name</th>
+                                    <th width="70%">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>@@hasInstance</code></td>
+                                    <td>"Symbol.hasInstance"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@isConcatSpreadable</code></td>
+                                    <td>"Symbol.isConcatSpreadable"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@iterator</code></td>
+                                    <td>"Symbol.iterator"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@match</code></td>
+                                    <td>"Symbol.match"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@replace</code></td>
+                                    <td>"Symbol.replace"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@search</code></td>
+                                    <td>"Symbol.search"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@species</code></td>
+                                    <td>"Symbol.species"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@split</code></td>
+                                    <td>"Symbol.split"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@toPrimitive</code></td>
+                                    <td>"Symbol.toPrimitive"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@toStringTag</code></td>
+                                    <td>"Symbol.toStringTag"</td>
+                                </tr>
+								<tr>
+                                    <td><code>@@unscopables</code></td>
+                                    <td>"Symbol.unscopables"</td>
+                                </tr>
+							</tbody>
+						</table>
+						
+                    </section>
+				</div>
+			</div>
+        </div>
+        <!-- END -->
+        <footer class="footer">
+            <div class="container container-narrow">
+                <p>lizeelf - <a href="https://github.com/lizeelf/ecma" target="_black">https://github.com/lizeelf/ecma</a></p>
+            </div>
+        </footer>
+        <!-- Le javascript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../assets/js/jquery-1.8.3.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/google-code-prettify/prettify.js"></script>
+        <script src="../assets/js/application.js"></script>
+    </body>
+</html>
